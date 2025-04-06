@@ -11,7 +11,6 @@ tts_test/
 │   ├── css/        # 스타일시트
 │   ├── js/         # 자바스크립트 파일
 │   └── index.html  # 메인 HTML 파일
-├── tts_outputs/    # TTS 출력 파일 저장 디렉토리
 └── ttsvenv/        # 파이썬 가상 환경 (무시됨)
 ```
 
