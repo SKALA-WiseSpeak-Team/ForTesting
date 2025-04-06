@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 음성 어시스턴트</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>AI 음성 어시스턴트</h1>
+            <div class="header-controls">
+                <div class="continuous-mode">
+                    <span>연속 모드: </span>
+                    <span id="continuous-mode-status">비활성화</span>
+                </div>
+                <button id="settings-btn" class="icon-btn">
+                    <i class="fas fa-cog"></i>
+                </button>
+            </div>
+        </header>
+        
+        <main>
+            <div class="chat-container">
+                <div id="chat-messages" class="chat-messages">
+                    <!-- 메시지가 여기에 동적으로 추가됩니다 -->
+                </div>
+            </div>
+            
+            <div class="voice-controls">
+                <button id="mic-btn" class="voice-btn">
+                    <i class="fas fa-microphone"></i>
+                </button>
+                <div id="status-indicator" class="status-indicator">
+                    준비됨
+                </div>
+                <button id="stop-btn" class="voice-btn hidden">
+                    <i class="fas fa-stop"></i>
+                </button>
+            </div>
+        </main>
+        
+        <div id="settings-panel" class="settings-panel hidden">
+            <div class="settings-header">
+                <h2>설정</h2>
+                <button id="close-settings" class="icon-btn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="settings-content">
+                <div class="settings-section">
+                    <h3>음성 인식 설정</h3>
+                    <div class="setting-item">
+                        <label for="continuous-mode-toggle">연속 모드</label>
+                        <label class="switch">
+                            <input type="checkbox" id="continuous-mode-toggle">
+                            <span class="slider round"></span>
+                        </label>
+                        <p class="setting-description">
+                            연속 모드를 활성화하면 마이크가 계속 켜진 상태로 대화를 이어갈 수 있습니다.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="settings-section">
+                    <h3>언어 설정</h3>
+                    <select id="language-select">
+                        <option value="ko-KR">한국어</option>
+                        <option value="en-US">영어 (미국)</option>
+                        <option value="ja-JP">일본어</option>
+                        <option value="zh-CN">중국어 (간체)</option>
+                        <option value="es-ES">스페인어</option>
+                        <option value="fr-FR">프랑스어</option>
+                        <option value="de-DE">독일어</option>
+                        <option value="ru-RU">러시아어</option>
+                        <option value="pt-BR">포르투갈어 (브라질)</option>
+                        <option value="it-IT">이탈리아어</option>
+                    </select>
+                </div>
+                
+                <div class="settings-section">
+                    <h3>음성 설정</h3>
+                    <div class="setting-item">
+                        <label for="voice-select">목소리</label>
+                        <select id="voice-select">
+                            <!-- 동적으로 채워집니다 -->
+                        </select>
+                    </div>
+                    
+                    <div class="setting-item">
+                        <label for="speed-slider">속도</label>
+                        <input type="range" id="speed-slider" min="0.5" max="2" step="0.1" value="1">
+                        <span id="speed-value">1.0</span>
+                    </div>
+                    
+                    <div class="setting-item">
+                        <label for="pitch-slider">톤</label>
+                        <input type="range" id="pitch-slider" min="0.5" max="2" step="0.1" value="1">
+                        <span id="pitch-value">1.0</span>
+                    </div>
+                    
+                    <div class="setting-item">
+                        <label for="style-select">말투</label>
+                        <select id="style-select">
+                            <option value="neutral">보통</option>
+                            <option value="formal">격식체</option>
+                            <option value="casual">친근한</option>
+                            <option value="enthusiastic">열정적인</option>
+                            <option value="professional">전문적인</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="settings-section">
+                    <h3>RAG 설정</h3>
+                    <div class="setting-item">
+                        <label for="rag-toggle">RAG 활성화</label>
+                        <label class="switch">
+                            <input type="checkbox" id="rag-toggle">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    
+                    <div id="rag-settings" class="rag-settings hidden">
+                        <div class="setting-item">
+                            <label for="document-upload">문서 업로드</label>
+                            <input type="file" id="document-upload" accept=".txt,.pdf,.docx">
+                        </div>
+                        <div id="uploaded-documents" class="uploaded-documents">
+                            <!-- 업로드된 문서 목록 -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/settings.js"></script>
+    <script src="js/speechRecognition.js"></script>
+    <script src="js/textToSpeech.js"></script>
+    <script src="js/chatService.js"></script>
+    <script src="js/ragService.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

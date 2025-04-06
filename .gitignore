@@ -1,0 +1,31 @@
+# 환경 변수 파일
+.env
+.env.*
+
+# 가상 환경
+ttsvenv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Node 모듈
+node_modules/
+
+# 로그 파일
+*.log
+
+# TTS 출력 파일
+tts_outputs/*.mp3
+tts_outputs/*.wav
+
+# IDE 관련 파일
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS 관련 파일
+.DS_Store
+Thumbs.db
