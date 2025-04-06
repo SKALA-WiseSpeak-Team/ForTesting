@@ -16,9 +16,9 @@ node_modules/
 # 로그 파일
 *.log
 
-# TTS 출력 파일
-tts_outputs/*.mp3
-tts_outputs/*.wav
+# 오디오 출력 파일
+*.mp3
+*.wav
 
 # IDE 관련 파일
 .idea/
